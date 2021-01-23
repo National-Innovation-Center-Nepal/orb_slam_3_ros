@@ -12,4 +12,6 @@ Subscribed topic: /usb_cam/image_raw : sensor_msgs/Image
 According to the test on openvslam and orb_slam3 somehow orb_slam3 has showng bettern resutls when running visual slam processs.
 
 Todo:
-1. Integratio of gridmap feature in this package such that when running slam 2d occupency grid map is generated in real time. Another package whih has tried smae thing which can be used and improved for better reliablility. https://github.com/skylook/ORB_SLAM2-gridmap 
+1. Integration of gridmap feature in this package such that when running slam 2d occupency grid map is generated in real time. Another package whih has tried smae thing which can be used and improved for better reliablility. https://github.com/skylook/ORB_SLAM2-gridmap 
+2. SaveMap and LoadMap function implementation 
+3. Fully ros compatible and removal of Pangolin viewer
