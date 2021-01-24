@@ -1,4 +1,0 @@
-<?xml version="1.0"?>
-<launch>
-	<node pkg="orb_slam3_ros" type="ros_mono" name="ros_mono" args="$(find orb_slam3_ros)/data/Vocabulary/ORBvoc.txt $(find orb_slam3_ros)/data/Monocular/EuRoC.yaml"/> 
-</launch>

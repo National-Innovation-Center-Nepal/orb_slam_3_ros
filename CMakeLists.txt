@@ -82,7 +82,7 @@ generate_messages(
         std_msgs
 )
 
-set(ROOT_DIR /home/ubuntu/Downloads/ORB_SLAM3_ws/src/ORB-SLAM3)
+set(ROOT_DIR /home/ubuntu/ORB-SLAM3)
 
 include_directories(
 include
@@ -109,19 +109,7 @@ set(ORB_SLAM3 ${ROOT_DIR}/lib/libORB_SLAM3.so)
 #)
 #add_dependencies (${PROJECT_NAME}_mono ${PROJECT_NAME} ${PROJECT_NAME}_gencfg)
 
-#target_link_libraries(${PROJECT_NAME}_mono
-#        ${ORB_SLAM3}
-#        ${catkin_LIBRARIES}
-#        ${EIGEN3_LIBS}
-#        ${Pangolin_LIBRARIES}
-#        ${ROOT_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
-#        ${ROOT_DIR}/Thirdparty/g2o/lib/libg2o.so
-#        -lboost_serialization
-#        -lcrypto
-#)
-
-add_executable(ros_mono src/ros_mono.cc)
-target_link_libraries(ros_mono
+set(LIBS
         ${ORB_SLAM3}
         ${catkin_LIBRARIES}
         ${EIGEN3_LIBS}
@@ -132,28 +120,47 @@ target_link_libraries(ros_mono
         -lcrypto
 )
 
-add_executable(ros_mono_inertial src/ros_mono_inertial.cc)
-target_link_libraries(ros_mono_inertial
-        ${ORB_SLAM3}
-        ${catkin_LIBRARIES}
-        ${EIGEN3_LIBS}
-        ${Pangolin_LIBRARIES}
-        ${ROOT_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
-        ${ROOT_DIR}/Thirdparty/g2o/lib/libg2o.so
-        -lboost_serialization
-        -lcrypto
+# Node for monocular camera
+add_executable(Mono
+src/ros_mono.cc
+)
+
+target_link_libraries(Mono
+${LIBS}
+)
+
+# Node for stereo camera
+add_executable(Stereo
+src/ros_stereo.cc
+)
+
+target_link_libraries(Stereo
+${LIBS}
 )
 
 # Node for RGB-D camera
-add_executable(RGBD src/ros_rgbd.cc)
+add_executable(RGBD
+src/ros_rgbd.cc
+)
 
 target_link_libraries(RGBD
-    ${ORB_SLAM3}
-    ${catkin_LIBRARIES}
-    ${EIGEN3_LIBS}
-    ${Pangolin_LIBRARIES}
-    ${ROOT_DIR}/Thirdparty/DBoW2/lib/libDBoW2.so
-    ${ROOT_DIR}/Thirdparty/g2o/lib/libg2o.so
-    -lboost_serialization
-    -lcrypto
+${LIBS}
+)
+
+# Node for monocular-inertial camera
+add_executable(Mono_Inertial
+src/ros_mono_inertial.cc
+)
+
+target_link_libraries(Mono_Inertial
+${LIBS}
+)
+
+# Node for stereo-inertial camera
+add_executable(Stereo_Inertial
+src/ros_stereo_inertial.cc
+)
+
+target_link_libraries(Stereo_Inertial
+${LIBS}
 )
