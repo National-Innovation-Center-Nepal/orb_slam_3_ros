@@ -82,7 +82,7 @@ generate_messages(
         std_msgs
 )
 
-set(ROOT_DIR /home/rudera/ORB_SLAM3)
+set(ROOT_DIR /home/ubuntu/Downloads/ORB_SLAM3_ws/src/ORB-SLAM3)
 
 include_directories(
 include
@@ -99,7 +99,7 @@ catkin_package (
   LIBRARIES {PROJECT_NAME} libDBoW2 libg2o
 )
 
-set(ORB_SLAM3 /home/rudera/ORB_SLAM3/lib/libORB_SLAM3.so)
+set(ORB_SLAM3 ${ROOT_DIR}/lib/libORB_SLAM3.so)
 
 # Build examples
 
