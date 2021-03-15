@@ -1,13 +1,20 @@
 # orb_slam_3_ros  
-To run the mono slam:  
-roslaunch orb_slam_3_ros mono_euroc.launch  
-Subscribed topic: /usb_cam/image_raw : sensor_msgs/Image  
+Description:  
+This repo contains both the standalong orb_slam3 module and ros wrapper for that orb_slam_3_ros.  
 
-To run the mono inertial slam:  
+To install this package:  
+1. Clone this package    
+2. build with catkin_make   
+
+<h4> To run the mono slam: </h4>    
+roslaunch orb_slam_3_ros mono_euroc.launch  
+Subscribed topic: /usb_cam/image_raw (sensor_msgs/Image)    
+
+<h4> To run the mono inertial slam: </h4>    
 roslaunch orb_slam_3_ros mono_inertial_euroc.launch  
 
-Subscribed topic: /usb_cam/image_raw : sensor_msgs/Image   
-                  /imu : sensor_msgs/Imu  
+Subscribed topic: /usb_cam/image_raw (sensor_msgs/Image)     
+                  /imu (sensor_msgs/Imu)  
                   
 According to the test on openvslam and orb_slam3 somehow orb_slam3 has showng bettern resutls when running visual slam processs.
 
