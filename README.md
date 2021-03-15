@@ -1,13 +1,13 @@
-# orb_slam_3_ros
-To run the mono slam:
-roslaunch orb_slam_3_ros mono_euroc.launch
-Subscribed topic: /usb_cam/image_raw : sensor_msgs/Image
+# orb_slam_3_ros  
+To run the mono slam:  
+roslaunch orb_slam_3_ros mono_euroc.launch  
+Subscribed topic: /usb_cam/image_raw : sensor_msgs/Image  
 
-To run the mono inertial slam:
-roslaunch orb_slam_3_ros mono_inertial_euroc.launch
+To run the mono inertial slam:  
+roslaunch orb_slam_3_ros mono_inertial_euroc.launch  
 
-Subscribed topic: /usb_cam/image_raw : sensor_msgs/Image 
-                  /imu : sensor_msgs/Imu
+Subscribed topic: /usb_cam/image_raw : sensor_msgs/Image   
+                  /imu : sensor_msgs/Imu  
                   
 According to the test on openvslam and orb_slam3 somehow orb_slam3 has showng bettern resutls when running visual slam processs.
 
